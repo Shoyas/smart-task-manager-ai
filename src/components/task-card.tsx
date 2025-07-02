@@ -52,10 +52,19 @@ const TaskCard = ({ task, onUpdateTask, onDeleteTask }: TaskCardProps) => {
       }
 
       const data = await response.json()
+      console.log("Subtask Data: ", data)
 
       if (data.subtasks && data.subtasks.length > 0) {
+        // Add id for each subtask if not present
+        const subtasksWithId = data.subtasks.map((subtask: any, idx: number) => ({
+          id: `${task.id}-subtask-${idx}`,
+          title: typeof subtask === "string" ? subtask : subtask.title,
+          taskId: task.id,
+          completed: false // Add initial completion state
+        }));
+
         onUpdateTask(task.id, {
-          subtasks: data.subtasks,
+          subtasks: subtasksWithId,
         })
         setShowSubtasks(true)
       } else {
@@ -63,8 +72,6 @@ const TaskCard = ({ task, onUpdateTask, onDeleteTask }: TaskCardProps) => {
       }
     } catch (error) {
       console.error("Error generating subtasks:", error)
-
-      // Show a user-friendly error message
       alert("Failed to generate subtasks. Please check your internet connection and try again.")
     } finally {
       setIsGeneratingSubtasks(false)
@@ -153,16 +160,60 @@ const TaskCard = ({ task, onUpdateTask, onDeleteTask }: TaskCardProps) => {
             )}
           </div>
 
-          {showSubtasks && task.subtasks && task.subtasks.length > 0 && (
+          {showSubtasks && Array.isArray(task.subtasks) && task.subtasks.length > 0 && (
             <div className="mt-4 p-4 bg-gray-50 rounded-lg">
               <h4 className="font-medium text-sm text-gray-700 mb-3">AI Suggested Subtasks:</h4>
               <ul className="space-y-2">
-                {task.subtasks.map((subtask, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm">
-                    <span className="text-blue-600 font-medium mt-0.5">•</span>
-                    <span className="text-gray-700">{subtask}</span>
-                  </li>
-                ))}
+                {task.subtasks.map((subtask, idx) => {
+                  // Type guard: handle both string and object subtask
+                  if (
+                    typeof subtask === "object" &&
+                    subtask !== null &&
+                    "id" in subtask &&
+                    "title" in subtask
+                  ) {
+                    // subtask is an object with id, title, and completed
+                    type SubtaskObj = { id: string; title: string; completed: boolean };
+                    const subtaskObj = subtask as SubtaskObj;
+                    return (
+                      <li key={subtaskObj.id} className="flex items-start gap-2 text-sm">
+                        <Checkbox
+                          checked={subtaskObj.completed}
+                          onCheckedChange={(checked) => {
+                            if (checked === "indeterminate") return;
+                            if (!Array.isArray(task.subtasks)) return;
+                            // Create updated subtasks array with toggled completion
+                            const updatedSubtasks = task.subtasks
+                              .filter(st => typeof st === "object" && st !== null && "id" in st && "title" in st)
+                              .map(st => {
+                                const sub = st as SubtaskObj;
+                                if (sub.id === subtaskObj.id) {
+                                  return { ...sub, completed: checked as boolean };
+                                }
+                                return sub;
+                              });
+                            onUpdateTask(task.id, { subtasks: updatedSubtasks });
+                          }}
+                          className="mt-0.5"
+                        />
+                        <span className={cn(
+                          "text-gray-700",
+                          subtaskObj.completed && "line-through text-gray-500"
+                        )}>
+                          {subtaskObj.title}
+                        </span>
+                      </li>
+                    );
+                  } else {
+                    // fallback for string subtasks
+                    return (
+                      <li key={idx} className="flex items-start gap-2 text-sm">
+                        <span className="text-blue-600 font-medium mt-0.5">•</span>
+                        <span className="text-gray-700">{subtask as string}</span>
+                      </li>
+                    );
+                  }
+                })}
               </ul>
             </div>
           )}
