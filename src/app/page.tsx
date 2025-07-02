@@ -1,3 +1,4 @@
+import TaskManager from "@/components/task-manager";
 
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold text-gray-900">Smart Task Manager with AI Assistance</h1>
           <p className="text-gray-600">Manage your tasks with the power of artificial intelligence</p>
         </div>
+        <TaskManager />
       </div>
     </main>
   );
