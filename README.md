@@ -1,12 +1,12 @@
-````markdown
+
 # 🧠 Smart Task Manager AI Assistance
 
 A smart and minimal task management system powered by Google Gemini AI.
 
-🌐 **Live Site**: https://smart-task-manager-ai-chi.vercel.app/  
-📁 **GitHub Repo**: https://github.com/Shoyas/smart-task-manager-ai  
-📧 **Email**: md.nasiruddin4067@gmail.com  
-💼 **LinkedIn**: https://www.linkedin.com/in/md-nasir-uddin4067  
+🌐 **Live Site**: <https://smart-task-manager-ai-chi.vercel.app/>  
+📁 **GitHub Repo**: <https://github.com/Shoyas/smart-task-manager-ai>  
+📧 **Email**: <md.nasiruddin4067@gmail.com>  
+💼 **LinkedIn**: <https://www.linkedin.com/in/md-nasir-uddin4067>  
 📱 **WhatsApp**: +8801740209884
 
 ---
@@ -85,7 +85,7 @@ cp .env.example .env.local
 ### 4. Start the Development Server
 
 ```bash
-pnpm dev
+pnpm run dev
 ```
 
 Or:
@@ -117,11 +117,11 @@ GOOGLE_API_KEY=your_google_gemini_api_key_here
 **Task:** `Launch product campaign`
 **AI Suggested Subtasks:**
 
-* Define audience
-* Create content plan
-* Schedule announcements
-* Monitor performance
-* Adjust based on feedback
+- Define audience
+- Create content plan
+- Schedule announcements
+- Monitor performance
+- Adjust based on feedback
 
 ---
 
@@ -133,21 +133,8 @@ Click on "Load Sample Tasks" to try out the app with pre-filled data and explore
 
 ## ⚠️ Known Issues / Challenges
 
-* 🔧 **Subtask Actions**: Currently, subtasks suggested by AI are static. You cannot mark them as completed individually. This is a planned future improvement.
-* 🧠 Rate limits may apply on free Gemini API usage depending on your API key.
-
----
-
-## 📁 Project Structure
-
-```
-/app
-  /api/gemini      → Gemini AI integration route
-  /tasks           → Task management UI and logic
-/components        → Reusable UI components (buttons, modals, etc.)
-/lib               → Utility functions (e.g., subtask suggestions)
-/styles            → Global styles and Tailwind config
-```
+- 🔧 **Subtask Actions**: Currently, subtasks suggested by AI are static. You cannot mark them as completed individually. This is a planned future improvement.
+- 🧠 Rate limits may apply on free Gemini API usage depending on your API key.
 
 ---
 
@@ -159,14 +146,6 @@ GOOGLE_API_KEY=your_google_gemini_api_key_here
 ```
 
 ---
-
-## 🤝 Acknowledgements
-
-* [Google Gemini AI](https://aistudio.google.com/)
-* [Next.js](https://nextjs.org/)
-* [Radix UI](https://www.radix-ui.com/)
-* [Lucide Icons](https://lucide.dev/)
-* [Tailwind CSS](https://tailwindcss.com/)
 
 ## 📄 License
 
