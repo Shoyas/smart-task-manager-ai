@@ -1,6 +1,6 @@
 'use client';
 
-import { Task } from "@/types/task"
+import { Subtask, Task } from "@/types/task"
 import { useState } from "react"
 import { Card, CardContent, CardHeader } from "./ui/card"
 import { cn } from "@/lib/utils"
@@ -56,11 +56,11 @@ const TaskCard = ({ task, onUpdateTask, onDeleteTask }: TaskCardProps) => {
 
       if (data.subtasks && data.subtasks.length > 0) {
         // Add id for each subtask if not present
-        const subtasksWithId = data.subtasks.map((subtask: any, idx: number) => ({
+        const subtasksWithId = data.subtasks.map((subtask: string | Subtask, idx: number) => ({
           id: `${task.id}-subtask-${idx}`,
           title: typeof subtask === "string" ? subtask : subtask.title,
           taskId: task.id,
-          completed: false // Add initial completion state
+          completed: false
         }));
 
         onUpdateTask(task.id, {
