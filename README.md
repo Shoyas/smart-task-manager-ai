@@ -1,36 +1,180 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+````markdown
+# 🧠 Smart Task Manager AI Assistance
 
-## Getting Started
+A smart and minimal task management system powered by Google Gemini AI.
 
-First, run the development server:
+🌐 **Live Site**: https://smart-task-manager-ai-chi.vercel.app/  
+📁 **GitHub Repo**: https://github.com/Shoyas/smart-task-manager-ai  
+📧 **Email**: md.nasiruddin4067@gmail.com  
+💼 **LinkedIn**: https://www.linkedin.com/in/md-nasir-uddin4067  
+📱 **WhatsApp**: +8801740209884
+
+---
+
+## ✨ Features
+
+- ✅ Add / Edit / Delete tasks with title, description, due date, and status
+- 📌 Filter tasks by **Pending** or **Completed**
+- 📅 Built-in calendar date picker for due dates
+- 🧠 **"Suggest Subtasks"** button powered by **Google Gemini AI**
+  - Example: `Prepare for job interview` → `Research company's tech stack, Practice challenges, Plan interview outfit`
+- 🎯 Sample tasks available with one-click AI-generated subtasks
+- 💡 Simple and clean UI, optimized for both mobile and desktop
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15+ (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **AI Integration**: Google Gemini API
+- **Components**: Shadcn UI + Lucide React Icons
+- **LocalStorage**: Store all information.
+- **Date Handling**: date-fns
+
+---
+
+## 🚀 Getting Started (Run Locally)
+
+Follow these steps to run the project on your local machine:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Shoyas/smart-task-manager-ai.git
+cd smart-task-manager-ai
+````
+
+### 2. Install Dependencies
+
+Using `pnpm`:
+
+```bash
+pnpm install
+```
+
+Or with `npm`:
+
+```bash
+npm install
+```
+
+Or with `yarn`:
+
+```bash
+yarn install
+```
+
+### 3. Set Up Environment Variables
+
+Create a `.env.example` file in the root directory and add your Google Gemini API key:
+
+```
+GOOGLE_API_KEY=your_google_gemini_api_key_here
+```
+
+👉 You can get your free Gemini API key from: [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
+
+Alternatively, copy the template file:
+
+```bash
+cp .env.example .env.local
+```
+
+### 4. Start the Development Server
+
+```bash
+pnpm dev
+```
+
+Or:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then visit: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Environment Variables
 
-## Learn More
+Here’s the required environment variable to run the app:
 
-To learn more about Next.js, take a look at the following resources:
+```
+GOOGLE_API_KEY=your_google_gemini_api_key_here
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> Keep your API key safe and never push it to GitHub.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📋 Example Use Case
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Task:** `Launch product campaign`
+**AI Suggested Subtasks:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Define audience
+* Create content plan
+* Schedule announcements
+* Monitor performance
+* Adjust based on feedback
+
+---
+
+## 🧪 Sample Tasks with AI Suggestions
+
+Click on "Load Sample Tasks" to try out the app with pre-filled data and explore AI-generated subtasks without writing anything!
+
+---
+
+## ⚠️ Known Issues / Challenges
+
+* 🔧 **Subtask Actions**: Currently, subtasks suggested by AI are static. You cannot mark them as completed individually. This is a planned future improvement.
+* 🧠 Rate limits may apply on free Gemini API usage depending on your API key.
+
+---
+
+## 📁 Project Structure
+
+```
+/app
+  /api/gemini      → Gemini AI integration route
+  /tasks           → Task management UI and logic
+/components        → Reusable UI components (buttons, modals, etc.)
+/lib               → Utility functions (e.g., subtask suggestions)
+/styles            → Global styles and Tailwind config
+```
+
+---
+
+## 📝 .env.example
+
+```env
+# Google Gemini API Key
+GOOGLE_API_KEY=your_google_gemini_api_key_here
+```
+
+---
+
+## 🤝 Acknowledgements
+
+* [Google Gemini AI](https://aistudio.google.com/)
+* [Next.js](https://nextjs.org/)
+* [Radix UI](https://www.radix-ui.com/)
+* [Lucide Icons](https://lucide.dev/)
+* [Tailwind CSS](https://tailwindcss.com/)
+
+## 📄 License
+
+This project is open-source and available for learning, demo, and educational purposes.
+
+---
+
+Built with ❤️ by [Md. Nasir Uddin](https://www.linkedin.com/in/md-nasir-uddin4067)
+
+```
+```
