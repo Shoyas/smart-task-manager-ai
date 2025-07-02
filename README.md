@@ -19,6 +19,7 @@ A smart and minimal task management system powered by Google Gemini AI.
 - 🧠 **"Suggest Subtasks"** button powered by **Google Gemini AI**
   - Example: `Prepare for job interview` → `Research company's tech stack, Practice challenges, Plan interview outfit`
 - 🎯 Sample tasks available with one-click AI-generated subtasks
+- 📌 LocalStorage to store all information.
 - 💡 Simple and clean UI, optimized for both mobile and desktop
 
 ---
@@ -30,7 +31,6 @@ A smart and minimal task management system powered by Google Gemini AI.
 - **Styling**: Tailwind CSS v4
 - **AI Integration**: Google Gemini API
 - **Components**: Shadcn UI + Lucide React Icons
-- **LocalStorage**: Store all information.
 - **Date Handling**: date-fns
 
 ---
